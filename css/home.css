@@ -1,0 +1,62 @@
+#nav_con{
+    text-align: center;
+    color: #0056b3;
+    font-size: 40px;
+    background-color: aqua;
+}
+#personal_details_con{
+    text-align: center;
+    font-size: 50px;
+}
+#logout{
+    display: block;
+    width: 20%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+}
+/* Form container */
+#personal_details{
+    margin: 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    text-align: center;
+  }
+  #personal_details label{
+    padding: 50px;
+    width: 60%;
+    color: red;
+    height: 80%;
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  
+  
+  /* Submit button */
+  #complete_btn {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #personal_details .btn-submit:hover {
+    background-color: #0056b3;
+  }
+  #displayprofile_con{
+    display: none;
+  }
+  #updateprofile_con{
+    display: none;
+  }
+  

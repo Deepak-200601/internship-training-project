@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <style>
+            /* apply internal CSS */
+            #signup_con{
+                display: none ;
+            }
+            #right_con{
+                    height: 480px;
+                    width: 25%;
+                    float: right;
+                    margin-right: 20%;
+                }
+            
+            </style>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="js/index.js">
+        </script>
+        <script src="js/validation.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script src="config/connection.js"></script>
+    </head>
+    <body onload="def()">
+        <!-- create login container -->
+        <!-- create header container -->
+        <div id="header_con">
+            <p>My Application </p>
+        </div>
+        <div id="master_con">
+
+            <div id="left_con">
+                <img src="media/login_icon.gif">
+            </div>
+            <div id="right_con">
+                    <div id="login_con">
+                    <p id="login_notification"> </p>
+                    <h1> Login </h1>
+                    <p> enter your email id</p>
+                    <input type = "email" id="login_emailid" >
+                    <p> Enter the password</p>
+                    <input type = "text" id="login_password"> <br>
+                    <button onclick="login()" id="login_btn"> login </button><br>
+                    <button onclick="open_signup()" id="newuser_btn"> new to application? create account </button>
+            </div>
+    
+        <!-- create signup container 
+        CSS can be applied inline, external, internal 
+        inline CSS - not recomendable <div style="display: none;">
+        internal  CSS - not efficient
+        External CSS - Recommendable
+        
+        -->
+            <div id="signup_con">
+                <p id="signup_notification"> </p>
+                <h1> sign up </h1>
+                <input type = "email" id="signup_emailid" placeholder="enter your emailid"><br>
+                <input type = "text" id="signup_password" placeholder="enter password">
+                <button onclick="create_account()"> sign up </button>
+            </div>
+        </div>
+        </div>
+        <!-- create verification container-->
+
+        <div id="verification_con">
+            <p> click below to verify yourself </p>
+            <button onclick="send_email()" id="verify_con"> send email </button>
+        </div>
+        
+        <!-- create Footer container -->
+        <div id="footer_con">
+            <p> copyright @2024 </p>
+
+        </div>
+    </body>
+    <!--  apply internal javascript -->
+    <script>
+        // create a function to perform operation when page load
+        /*function def()
+        {
+            //hide the signup container 
+            //alert ("testing");
+            document.getElementById("signup_con").style.display="none";
+            
+        }*/
+    </script>
+    <script> 
+        // check whether the user is active or not 
+        firebase.auth().onAuthStateChanged(function(user){
+
+        if(user){
+            //alert("Active User");
+            //fetch the email id of active user
+            var email = user.email;
+            //check that user has verified his email or not 
+            var user=firebase.auth().currentUser;
+            var emailVerified=user.emailVerified;
+            //redirect the page according to email verified status 
+            if(emailVerified==false)
+            {
+                //open the verification container
+                document.getElementById("login_con").style.display="none";
+                document.getElementById("signup_con").style.display="none";
+                document.getElementById("verification_con").style.display="block";
+            }
+            else
+            {
+                //redirect the page to homepage
+            window.location.href="template/home.html";
+            }
+            
+        }
+        else
+        {
+            window.location.href= "index.html";
+        }
+        })
+    </script>
+</html>

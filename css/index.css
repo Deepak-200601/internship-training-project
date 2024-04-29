@@ -1,0 +1,108 @@
+#signup_con {
+    /*display: none;*/
+}
+#header_con {
+    height: 80px;
+    width: 100%;
+    background-color: aqua;
+    text-align: center;
+    padding-top: 10px;
+}
+#header_con p{
+    font-size: 30px;
+    font-weight: bold;
+    font-style: calc();
+    margin-top: 10px;
+    
+}
+#master_con{
+    height: 550px;
+    width: 100%;
+    padding-top: 10px;
+}
+
+#left_con{
+        height: 480px;
+        width: 35%;
+        float: left;
+        margin-left: 20%;
+        #left_con img{
+            height: 450px;
+            width: 100%;
+        }
+    }
+
+    #right_con{
+        height: 100%;
+        width: 25%;
+        float: right;
+        margin-right: 20%;
+    }
+
+    #login_con{
+        text-align: center;
+        border: 1px solid black;
+    }
+
+    input{
+        height: 20px;
+        width: 80%;
+        border: none;
+        border-bottom: 2px solid black;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        outline: none;
+    }
+    ::placeholder{
+        font-weight: bold;
+        color: blue;
+
+    }
+    #login_btn{
+        height: 20px;
+        width : 40%;
+        margin-bottom: 20px;
+        color: red;
+    }
+
+    #newuser_btn{
+        border: none;
+        background-color: inherit;
+    }
+
+    #newuser_btn:hover{
+        cursor: pointer;
+        color: blue;
+    }
+    
+        #signup_con{
+            text-align: center;
+            border: 1px solid black;
+            height: 450px;
+            width: 100%;
+            
+        }
+
+        #masterverify_con{
+            height: 550px;
+            width: 100%;
+            padding-top: 10px;
+        }
+        #verify_con{
+            height: 50px;
+            width: 50%;
+            color: black;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+
+            #footer_con{
+                height: 100px;
+                text-align: center;
+                font-size: large;
+                border: 1px solid black;
+                background-color: aqua;
+                padding-top: 20px;
+            
+
+    }

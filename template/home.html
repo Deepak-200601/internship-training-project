@@ -1,0 +1,92 @@
+<html> 
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+        <script src="../js/index.js"></script>
+        <script src="../js/validation.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script src="../config/connection.js"></script>
+       
+    </head>
+    <body>
+        <div id="nav_con">
+        <h1> My Application </h1>
+            <button id="logout" onclick="logout_details()"> logout </button>
+        </div>
+        <div id="personal_details_con">
+            <form id="personal_details">
+                <p> Personal Information </p>
+                <!-- create a hidden input field which contains user identity-->
+                <input type="hidden" id="hidden_input">
+                <table id="frm_table">
+                <tr>
+                    <td><label> title </label></td>
+                    <td><input type="text" id="title"> </td> </tr>
+                <tr> 
+                    <td><label> full name </label></td>
+                    <td><input type="text" id="fname"></td></tr>
+                <tr>
+                    <td><label> Designation </label></td>
+                    <td><input type="text" id="Des"></td></tr> 
+                <tr>
+                    <td><label> Contact </label></td>
+                    <td><input type="number" id="Contactno"> </td></tr>
+                <tr>
+                    <td><label> DOB </label></td>
+                    <td><input type="date" id="DOB"></td></tr> 
+                <tr>
+                    <td><label> Gender </label></td>
+                    <td><input type="text" id="Gender"></td></tr>
+                <tr>
+                   <td> <label> Alternate Email</label></td>
+                <td><input type="text" id="alter"></td></tr>
+                <tr>
+                    <td><button id="complete_btn" onclick="insert_details()"> complete profile </button></td></tr>  
+                </table>
+            </form>
+        </div>
+        <div id="displayprofile_con">
+            <h1> your profile </h1> 
+            <p id="name_info"> </p>
+            <p id="title_info"> </p>
+            <p id="contact_info"> </p>
+            <p id="gender_info"> </p>
+            <p id="alter_info"> </p>
+            <p id="des_info"> </p>
+            <p id="DOB_info"> </p>
+            <button id="update_btn" onclick="update_details()">Update</button>
+        </div>
+        <div id="updateprofile_con">
+            <h1> your profile </h1> 
+            <input id="updatename_info">
+            <input id="updatetitle_info">
+            <input id="updatecontact_info">
+            <input id="updategender_info">
+            <input id="updatealter_info">
+            <input id="updatedes_info">
+            <input id="updateDOB_info">
+            <button id="confirm_btn" onclick="confirm_details()">confirm </button>
+        </div>
+    </body>
+    <script> 
+        // check whether the user is active or not 
+        firebase.auth().onAuthStateChanged(function(user){
+
+        if(user){
+            //set the active user inside the hidden input field
+            var email = user.email;
+            document.getElementById("hidden_input").value=email;
+           fetchdata(email);
+        }
+        else
+        {
+            window.location.href= "../index.html";
+        }
+        })
+    </script>
+    <!-- import all the necessary package for ineracting with the database -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="../js/insertdata.js"> </script>
+    <script src="../js/fetchdata.js"> </script>
+</html>
